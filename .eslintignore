@@ -1,0 +1,9 @@
+**/*{.,-}min.js
+test/integration/utils/kjur.js
+/dist/
+/lib/
+/bin/
+/.git/
+/docs/
+**/*.sh
+get_changelog_diff.js

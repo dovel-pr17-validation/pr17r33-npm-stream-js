@@ -1,0 +1,20 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "chrome >= 80",
+            "firefox >= 74",
+            "safari >= 13.4"
+          ],
+          "node": "18"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "sourceType": "unambiguous",
+  "ignore": ["node_modules", "dist", "lib"]
+}

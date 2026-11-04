@@ -1,0 +1,26 @@
+name: Browser Test
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    # karma-webpack turns a failed bundle into an indefinite hang rather than an
+    # error, so cap the job; a healthy run takes about two minutes.
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-node
+      - name: Test
+        env:
+          STREAM_APP_ID: ${{ secrets.STREAM_APP_ID }}
+          STREAM_API_KEY: ${{ secrets.STREAM_API_KEY }}
+          STREAM_API_SECRET: ${{ secrets.STREAM_API_SECRET }}
+        run: yarn run test-browser
